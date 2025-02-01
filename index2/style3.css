@@ -1,0 +1,29 @@
+@charset "UTF-8";
+h1 {
+    font-size: 2rem;
+    color: #fff;
+    text-align: center;
+}
+
+.inputbox {
+    position: relative;
+    margin: 40px 0;
+    max-width: 310px;
+    border-bottom: 2px solid #fff;
+}
+
+.inputbox label {
+    position: absolute;
+    top: 10%;
+    left: 5px;
+    transform: translateY(-10px);
+    color: #fff;
+    font-size: 1rem;
+    pointer-events: none;
+    transition: all 0.5s ease-in-out;
+}
+
+input:focus ~ label,
+input:valid ~label {
+    top: -5px;
+}
