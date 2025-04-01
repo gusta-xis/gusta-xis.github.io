@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecommerce</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Sobre</a></li>
+                <li><a href="#">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Seja bem-vindo ao nosso ecommerce com Javascript</h1>
+            <p>Encontre aqui o seu produto</p>
+            <button id="bhero">Compre agora</button>
+        </section>
+
+        <section class="products">
+            <h2>Produtos em destaque</h1>
+                <div class="product-grid">
+                    <!--Aqui sera adicionado os produtos via js-->
+                </div>
+        </section>
+
+        <section class="cart">
+            <h2>Carrinho de compras</h2>
+            <table>
+
+                <thread>
+                    <tr>
+                        <th>produto</th>
+                        <th>Quantidade</th>
+                        <th>Preço</th>
+                        <th>Subtotal</th>
+                    </tr>
+                </thread>
+
+                <tbody>
+                    <!--Aqui sera os itens do carrinho via js-->
+                </tbody>
+            </table>
+
+            <p>Total: <span id="total">R$0.00</span></p>
+            <button id="checkout">Pagar</button>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Damascena v2</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
