@@ -1,7 +1,7 @@
 body {
     margin: 0;
     font-family: 'poppins', sans-serif;
-    background-color: white;
+    background-image: url(img/navbar.avif);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -13,6 +13,7 @@ header {
     color: white;
     padding: 20px;
     text-align: center;
+    
 }
 
 nav ul {
@@ -34,6 +35,7 @@ nav a {
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+    transition: all 0.4s ease;
 }
 
 nav a:hover {
@@ -43,22 +45,24 @@ nav a:hover {
 }
 
 .hero {
-    background-image: linear-gradient(to bottom, #00BFFF, #87CEFA);
     padding: 100;
     text-align: center;
     color: #333333;
 }
 
 .hero #bhero {
-    background-color: white;
+    background-color: #87CEFA;
     color: black;
     border: none;
     padding: 10px 20px;
     font-size: 20px;
+    border-radius: 5px;
+    font-weight: 600;
+    
 }
 
 
-.product {
+.products {
     padding: 20px;
 }
 
@@ -72,13 +76,19 @@ nav a:hover {
     background-image: linear-gradient(to bottom, #00BFFF, #87CEFA);
     padding: 20px;
     border: 1px solid white;
-    cursor: pointer;
+    border-radius: 15px;
 }
 
 .product img {
     width: 100%;
     height: 150px;
     object-fit: cover;
+    border-radius: 30px;
+}
+
+.destaque {
+    font-size: 3vw;
+    color: black;
 }
 
 h3 {
@@ -135,4 +145,37 @@ footer {
     padding: 10px;
     text-align: center;
     clear: both;
+}
+
+.jsbutton {
+    border-radius: 30px;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    font-weight: 600;
+    font-size: 16px;
+    height: 75px;
+    padding: 20px;
+}
+
+.jsbutton:hover{
+    color: #87CEFA;
+    text-decoration: none;
+
+}
+
+.remove-btn {
+	background-color: crimson;
+	color: white;
+	border: none;
+	padding: 5px 10px;
+	border-radius: 4px;
+	cursor: pointer;
+    transition: all 0.4s ease;
+}
+
+.remove-btn:hover {
+    background-color: darkred;
 }

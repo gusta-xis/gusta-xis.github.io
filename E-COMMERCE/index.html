@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ecommerce</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 <body>
     <header>
@@ -21,11 +22,11 @@
         <section class="hero">
             <h1>Seja bem-vindo ao nosso ecommerce com Javascript</h1>
             <p>Encontre aqui o seu produto</p>
-            <button id="bhero">Compre agora</button>
+            <h1 class="destaque">Produtos em destaque</h1>
         </section>
 
         <section class="products">
-            <h2>Produtos em destaque</h1>
+
                 <div class="product-grid">
                     <!--Aqui sera adicionado os produtos via js-->
                 </div>
@@ -35,14 +36,15 @@
             <h2>Carrinho de compras</h2>
             <table>
 
-                <thread>
+                <thead>
                     <tr>
-                        <th>produto</th>
+                        <th>Produto</th>
                         <th>Quantidade</th>
                         <th>Preço</th>
                         <th>Subtotal</th>
+                        <th>Remover</th>
                     </tr>
-                </thread>
+                </thead>
 
                 <tbody>
                     <!--Aqui sera os itens do carrinho via js-->
