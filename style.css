@@ -13,6 +13,9 @@ header {
     color: white;
     padding: 2vw;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 nav ul {
@@ -21,15 +24,14 @@ nav ul {
     padding: 0;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 nav li {
-    margin-right: 2vh;
+    margin: 10px;
 }
 
 nav a {
-    display: block;
     color: white;
     text-align: center;
     padding: 14px 16px;
@@ -40,7 +42,6 @@ nav a {
 nav a:hover {
     background-color: transparent;
     color: #87CEFA;
-    text-decoration: none;
 }
 
 .hero {
@@ -133,15 +134,17 @@ h3 {
 #checkout:hover {
     background-color: #333;
     color: #87CEFA;
-    text-decoration: none;
 }
 
 footer {
     background-color: #333;
     color: white;
-    padding: 10px;
+    padding: 20px 10px;
     text-align: center;
-    clear: both;
+    font-size: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .jsbutton {
@@ -159,7 +162,6 @@ footer {
 
 .jsbutton:hover {
     color: #87CEFA;
-    text-decoration: none;
 }
 
 .remove-btn {
@@ -176,8 +178,46 @@ footer {
     background-color: darkred;
 }
 
+/* Estilo do fundo do alerta */
+.swal-modal {
+    background-color: #f0f8ff; /* azul claro */
+    border-radius: 15px;
+    font-family: 'Poppins', sans-serif;
+    border: 2px solid #87CEFA;
+    width: 300px !important;
+}
+
+  /* Título */
+.swal-title {
+    color: #333;
+    font-size: 24px;
+    font-weight: bold;
+    }
+
+  /* Texto */
+.swal-text {
+    color: #555;
+    font-size: 18px;
+    }
+
+  /* Botão */
+.swal-button {
+    background-color: #333;
+    color: white;
+    border-radius: 30px;
+    padding: 10px 20px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    }
+.swal-button:hover {
+    background-color: #87CEFA;
+    color: black;
+}
+
+
+
 /* ------------------------------------
-   ADAPTABILIDADE (Responsividade)
+ADAPTABILIDADE (Responsividade)
 ------------------------------------ */
 
 @media (max-width: 1024px) {
@@ -187,6 +227,13 @@ footer {
 
     .destaque {
         font-size: 4vw;
+    }
+
+    footer {
+        flex-direction: column;
+        text-align: center;
+        font-size: 1rem;
+        padding: 15px;
     }
 }
 
@@ -216,6 +263,10 @@ footer {
     .destaque {
         font-size: 5vw;
     }
+
+    footer {
+        font-size: 0.9rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -232,5 +283,24 @@ footer {
 
     .product img {
         height: 120px;
+    }
+
+    footer {
+        padding: 10px;
+        font-size: 0.85rem;
+    }
+}
+
+.swal-modal {
+    width: 80% !important;      /* Usa porcentagem para se adaptar */
+    max-width: 400px;           /* Limita a largura máxima */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+@media (max-width: 480px) {
+    .swal-modal {
+      width: 90% !important;    /* Para telas muito pequenas */
+    padding: 15px;
     }
 }
