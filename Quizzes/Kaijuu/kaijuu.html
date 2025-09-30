@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Qual Personagem de Kaijuu No. 8 Você É?</title>
+  <link rel="stylesheet" href="kaijuu.css"> 
+</head>
+<body>
+  <main class="app">
+    
+    <section id="tela-perguntas" class="tela active">
+        <h1 class="quiz-title">Qual Personagem de Kaijuu No. 8 Você É?</h1>
+        <form id="quiz-form">
+            
+            <div id="quiz-container"></div>
+            
+            <div class="actions">
+                <button type="submit" id="ver-resultado" class="btn" disabled>Ver Resultado</button>
+            </div>
+        </form>
+    </section>
+
+    <section id="tela-resultado" class="tela">
+      <h2>Seu Resultado</h2>
+      <div id="resultado" class="resultado"></div>
+      <div class="actions">
+        <button id="reiniciar" class="btn ghost">Refazer Quiz</button>
+        <button id="voltarMenu" class="btn ghost">Voltar ao Menu</button>
+      </div>
+    </section>
+  </main>
+
+  
+  <script src="kaijuu.js"></script>
+</body>
+</html>

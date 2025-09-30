@@ -1,0 +1,159 @@
+* { margin:0; padding:0; box-sizing:border-box; }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(135deg, #23243a 0%, #3a3a5a 100%);
+      color: #f5f5f5;
+      min-height: 100vh;
+    }
+
+    #tela-inicial {
+      background: url("img/fundo.jpg") no-repeat center center/cover;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #tela-inicial::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(40,40,60,0.55);
+      z-index: 1;
+    }
+
+    .conteudo {
+      position: relative;
+      z-index: 2;
+      animation: fadeIn 1.5s ease-in;
+    }
+
+    .conteudo h1 {
+      font-family: 'Cinzel', serif;
+      font-size: 2.5rem;
+      color: #c95151;
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px rgba(201,81,81,0.18);
+    }
+
+    .caixa-texto {
+      background: rgba(60, 65, 90, 0.5);
+      padding: 22px 32px;
+      border-radius: 16px;
+      max-width: 800px;
+      font-size: 1.15rem;
+      line-height: 1.6;
+      margin-bottom: 30px;
+      box-shadow: 0 2px 16px rgba(60,65,90,0.12);
+    }
+
+    /* Botão start */
+    #botaoInicial {
+      padding: 13px 26px;
+      border: none;
+      border-radius: 10px;
+      background: linear-gradient(90deg, #c95151, #a34040);
+      color: #fff;
+      font-size: 1.15rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.3s, background 0.3s;
+      text-shadow: 0 0 6px rgba(201,81,81,0.18);
+      box-shadow: 0 2px 12px rgba(201,81,81,0.10);
+    }
+
+    #botaoInicial:hover {
+      background: linear-gradient(90deg, #a34040, #c95151);
+      transform: scale(1.04);
+      box-shadow: 0 0 24px #c9515166;
+    }
+
+    /* Animação */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* QUIZ e RESULTADO */
+    #quiz-container,
+    #resultado {
+      display: none;
+      background: #2e3147;
+      padding: 28px;
+      border-radius: 16px;
+      box-shadow: 0 4px 18px rgba(201,81,81,0.10);
+      max-width: 700px;
+      margin: 40px auto;
+      text-align: center;
+      border: 2px solid #c95151;
+      color: #f5f5f5;
+    }
+
+    h2 { color: #c95151; margin-bottom: 18px; }
+
+    #pergunta { font-size:1.2rem; margin-bottom:18px; color:#f5f5f5; }
+    #opcoes { display:flex; flex-direction:column; gap:10px; margin-bottom:18px; padding:0 10px; }
+
+    .opcao {
+      background:#3a3d5a; border:2px solid #c95151; padding:12px; border-radius:10px;
+      cursor:pointer; color:#f5f5f5; transition:all .18s; text-align:left;
+      box-shadow: 0 2px 8px rgba(201,81,81,0.08);
+    }
+    .opcao:hover { background:#c95151; color:#fff; }
+    .opcao.selected { background:#c95151; color:#fff; font-weight:700; }
+
+    /* Estilo padrão dos botões */
+    #voltar, #proxima, .botao-resultado {
+      padding:10px 16px; margin:6px; border-radius:10px; border:none;
+      background:#c95151; color:#fff; cursor:pointer;
+      transition: background 0.3s, color 0.3s;
+      font-weight: 500;
+      box-shadow: 0 2px 8px rgba(201,81,81,0.08);
+    }
+    
+    #voltar:hover, #proxima:hover, .botao-resultado:hover {
+      background:#a34040;
+      color: #fff;
+    }
+
+    /* Estilo para o novo botão Voltar ao Menu */
+    .botao-secundario {
+      background: #3a3d5a;
+      color: #f5f5f5;
+    }
+    
+    .botao-secundario:hover {
+      background: #50536a;
+      color: #fff;
+    }
+
+    #voltar:disabled { background:#444; cursor:not-allowed; color:#bbb; }
+    
+    /* Wrapper para alinhar botões de resultado */
+    .botoes-resultado-wrapper {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    @media (max-width: 600px) {
+      .botoes-resultado-wrapper {
+        flex-direction: column;
+        gap: 10px;
+        align-items: stretch;
+      }
+      #quiz-container, #resultado {
+        padding: 12px;
+      }
+      .caixa-texto {
+        padding: 14px 10px;
+      }
+    }
