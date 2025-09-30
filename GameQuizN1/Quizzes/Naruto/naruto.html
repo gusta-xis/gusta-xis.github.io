@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Quem você é em Naruto?</title>
+  <link rel="stylesheet" href="naruto.css" />
+</head>
+<body>
+  <main class="app">
+    
+    <section id="tela-inicial" class="tela active">
+      <h1>🍥 Naruto Quiz</h1>
+      <p>Descubra qual personagem de <strong>Naruto</strong> combina com você. Responda 10 perguntas, 3 opções cada.</p>
+      <button id="comecar" class="btn">Começar</button>
+    </section>
+
+    <section id="tela-perguntas" class="tela">
+      <div class="topbar">
+        <span id="progresso">Pergunta 1 de 10</span>
+      </div>
+      <h2 id="titulo-pergunta">...</h2>
+      <div id="opcoes" class="opcoes"></div>
+      <div class="actions">
+        <button id="proxima" class="btn" disabled>Próxima</button>
+      </div>
+    </section>
+
+    <section id="tela-resultado" class="tela">
+      <h2>Resultado</h2>
+      <div id="resultado" class="resultado"></div>
+      <div class="actions">
+        <button id="reiniciar" class="btn ghost">Refazer</button>
+        <button id="voltarMenu" class="btn ghost">Voltar ao Menu</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="naruto.js"></script>
+</body>
+</html>

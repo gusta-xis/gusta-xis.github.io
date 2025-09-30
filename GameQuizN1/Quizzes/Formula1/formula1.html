@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz F1: Descubra Qual Piloto Você Seria</title>
+    <link rel="stylesheet" href="formula1.css">
+</head>
+<body>
+
+    <div class="container">
+        <!-- Tela Inicial -->
+        <div id="tela-inicial" class="screen active">
+            <h1>Quiz F1: Qual Piloto Você Seria?</h1>
+            <p>Responda 10 perguntas e descubra se você é como Verstappen, Hamilton, Leclerc, Alonso ou Russell!</p>
+            <button id="comecar">Começar Quiz</button>
+        </div>
+
+        <!-- Tela de Perguntas -->
+        <div id="tela-perguntas" class="screen">
+            <h2 id="titulo-pergunta"></h2>
+            <div id="opcoes"></div>
+            <p class="progresso" id="progresso">Pergunta 1 de 10</p>
+            <button id="proxima" disabled>Próxima</button>
+        </div>
+
+        <!-- Tela de Resultado -->
+        <div id="tela-resultado" class="screen">
+            <h2>Seu Piloto!</h2>
+            <div id="resultado"></div>
+            <button id="reiniciar">Jogar Novamente</button>
+            <button id="voltarMenu">Voltar ao Menu Principal</button>
+        </div>
+    </div>
+
+    <script src="formula1.js"></script>
+</body>
+</html>

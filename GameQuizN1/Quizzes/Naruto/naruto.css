@@ -1,0 +1,197 @@
+
+:root{
+  --bg:#0b0f1a;                 
+  --panel:#0f1524;              
+  --panel-2:#121a2e;
+  --text:#eef2ff;
+  --muted:#9aa4b8;
+
+  /* Acentos Naruto */
+  --ramen:#ff8c1a;              
+  --leaf:#39b36e;               
+  --sand:#ffd166;               
+  --chakra:#70c7ff;             
+
+  /* Traços e efeitos */
+  --stroke:rgba(255,255,255,.08);
+  --shadow-lg:0 18px 40px rgba(0,0,0,.45);
+  --shadow-sm:0 6px 18px rgba(0,0,0,.35);
+}
+
+*{box-sizing:border-box}
+:focus{outline:none}
+:focus-visible{box-shadow:0 0 0 3px color-mix(in oklab, var(--chakra) 60%, transparent); border-radius:10px}
+
+body{
+  margin:0;
+  font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(1200px 800px at 10% -10%, color-mix(in oklab,var(--ramen) 16%, transparent), transparent),
+    radial-gradient(900px 600px  at 110% 15%, color-mix(in oklab,var(--leaf) 16%, transparent), transparent),
+    radial-gradient(1200px 900px at 50% 110%, color-mix(in oklab,var(--chakra) 10%, transparent), transparent),
+    var(--bg);
+ 
+  position:relative;
+  min-height:100dvh;
+  overflow-x:hidden;
+}
+
+
+body::before, body::after{
+  content:"";
+  position:fixed;
+  inset:auto;
+  width:520px; height:520px;
+  filter:blur(40px) saturate(110%) opacity(.14);
+  pointer-events:none;
+  z-index:-1;
+  background:
+    radial-gradient(closest-side, color-mix(in oklab,var(--ramen) 30%, transparent), transparent 70%),
+    conic-gradient(from 45deg, transparent 0 10deg, var(--sand) 10deg 20deg, transparent 20deg 40deg, var(--leaf) 40deg 50deg, transparent 50deg 100deg);
+  mask: radial-gradient(closest-side, #000 0 55%, transparent 60% 100%);
+  border-radius:50%;
+}
+body::before{top:-140px; left:-120px}
+body::after{bottom:-160px; right:-120px; transform:rotate(20deg)}
+
+.app{max-width:880px; margin:0 auto; padding:28px}
+
+.tela{
+  display:none;
+  background:
+    linear-gradient(180deg, color-mix(in oklab, var(--panel) 80%, transparent), var(--panel-2)),
+    radial-gradient(1200px 900px at 30% -20%, color-mix(in oklab,var(--chakra) 8%, transparent), transparent);
+  border:1px solid var(--stroke);
+  border-radius:16px;
+  padding:22px;
+  box-shadow:var(--shadow-lg);
+  backdrop-filter:saturate(120%) blur(4px);
+}
+.tela.active{display:block}
+
+h1,h2{margin:.25em 0 .6em; letter-spacing:.2px}
+h1{
+  font-weight:800;
+  font-size:clamp(1.6rem, 2.2vw + 1rem, 2.2rem);
+  display:inline-block;
+  position:relative;
+}
+h1::after{
+  content:"";
+  display:block;
+  margin-top:8px;
+  width:64px; height:3px;
+  background:linear-gradient(90deg, var(--ramen), var(--sand), var(--leaf));
+  border-radius:3px;
+}
+h2{
+  font-weight:700;
+  font-size:clamp(1.2rem, 1.4vw + .8rem, 1.6rem);
+}
+
+p{color:var(--muted); line-height:1.6}
+
+.topbar{
+  display:flex; justify-content:space-between; align-items:center;
+  margin-bottom:10px; color:var(--muted);
+}
+#progresso{
+  display:inline-flex; align-items:center; gap:8px;
+  background:color-mix(in oklab, var(--panel-2) 70%, transparent);
+  border:1px solid var(--stroke);
+  padding:6px 10px; border-radius:999px;
+  font-size:.9rem;
+}
+
+.btn{
+  --_bg: linear-gradient(180deg, color-mix(in oklab,var(--ramen) 86%, #fff 4%), var(--ramen));
+  background:var(--_bg);
+  color:#1b1205;
+  border:1px solid color-mix(in oklab, var(--ramen) 60%, #000 10%);
+  padding:12px 18px;
+  border-radius:999px;
+  cursor:pointer;
+  transition:transform .06s ease, filter .2s ease, box-shadow .2s ease;
+  box-shadow:0 6px 16px rgba(255,140,26,.22);
+}
+.btn:hover{filter:brightness(1.05)}
+.btn:active{transform:translateY(1px)}
+.btn:disabled{opacity:.5; cursor:not-allowed; box-shadow:none}
+.btn.ghost{
+  --_bg:transparent;
+  background:transparent;
+  color:var(--text);
+  border:1px solid var(--stroke);
+  box-shadow:none;
+}
+.actions{margin-top:14px; display:flex; gap:10px; flex-wrap:wrap}
+
+.opcoes{display:grid; gap:12px; margin-top:12px}
+.opcao{
+  position:relative;
+  padding:14px 14px;
+  border:1px solid var(--stroke);
+  border-radius:12px;
+  cursor:pointer;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.02), transparent),
+    #0f1426;
+  transition: border-color .18s ease, transform .06s ease, box-shadow .18s ease;
+  box-shadow:var(--shadow-sm);
+}
+.opcao:hover{
+  border-color:color-mix(in oklab, var(--chakra) 45%, var(--stroke));
+  box-shadow:0 10px 24px rgba(112,199,255,.12);
+}
+.opcao:active{transform:translateY(1px)}
+.opcao.selecionada{
+  border-color: color-mix(in oklab, var(--sand) 70%, var(--ramen) 30%);
+  box-shadow:0 0 0 2px color-mix(in oklab, var(--sand) 40%, transparent), 0 14px 30px rgba(255,209,102,.18);
+  background:
+    linear-gradient(180deg, rgba(255,209,102,.07), transparent),
+    #102038;
+}
+
+.resultado{display:grid; gap:10px; align-items:center}
+.card{
+  display:grid;
+  grid-template-columns:92px 1fr;
+  gap:14px; align-items:center;
+  padding:14px;
+  border:1px solid var(--stroke);
+  border-radius:14px;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.03), transparent),
+    #0f162a;
+  box-shadow:var(--shadow-sm);
+}
+.card img{
+  width:92px; height:92px; object-fit:cover; border-radius:12px;
+  box-shadow:0 6px 18px rgba(0,0,0,.35);
+  border:1px solid var(--stroke);
+}
+.card h3{margin:.1em 0 .25em}
+.score{color:var(--muted); font-size:.96rem}
+
+h4{
+  margin:14px 0 8px; font-weight:700;
+  position:relative; display:inline-block;
+}
+h4::after{
+  content:"";
+  height:2px; width:56px; display:block; margin-top:8px;
+  background:linear-gradient(90deg, var(--leaf), var(--sand), var(--ramen));
+  border-radius:2px;
+}
+
+@media (max-width: 560px){
+  .app{padding:16px}
+  .tela{padding:16px}
+  .card{grid-template-columns:64px 1fr}
+  .card img{width:64px; height:64px}
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{transition:none !important; animation:none !important}
+}

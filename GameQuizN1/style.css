@@ -1,0 +1,282 @@
+/* ================================== */
+/* ESTILOS GERAIS */
+/* ================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #1a1a2e 0%, #0f0f1e 100%);
+    color: #e4e4e4;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 100%;
+    max-width: 1400px;
+    padding: 20px;
+    margin: 0 auto;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* ================================== */
+/* SEÇÃO DE BOAS-VINDAS */
+/* ================================== */
+.welcome-section {
+    text-align: center;
+    margin-bottom: 60px;
+    animation: fadeIn 1s ease-out;
+}
+
+.welcome-section h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 20px;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+}
+
+.welcome-section p {
+    font-size: 1.1rem;
+    color: #a0a0a0;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* ================================== */
+/* CARROSSEL 3D */
+/* ================================== */
+.carousel-3d-section {
+    position: relative;
+    height: 600px;
+    margin: 40px auto;
+    perspective: 1200px;
+}
+
+.carousel-3d-container {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-3d-track {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform-style: preserve-3d;
+}
+
+.carousel-3d-item {
+    position: absolute;
+    width: 380px;
+    height: 480px;
+    transition: all 0.6s cubic-bezier(0.4, 0.0, 0.2, 1);
+    cursor: pointer;
+    opacity: 0;
+    transform: scale(0.8) translateX(0) rotateY(0deg);
+    filter: blur(4px);
+}
+
+/* Estados dos cards no carrossel 3D */
+.carousel-3d-item.active {
+    opacity: 1;
+    transform: scale(1) translateX(0) rotateY(0deg) translateZ(0);
+    filter: blur(0);
+    z-index: 20;
+}
+
+.carousel-3d-item.next {
+    opacity: 0.7;
+    transform: scale(0.85) translateX(50%) rotateY(-25deg) translateZ(-100px);
+    filter: blur(1px);
+    z-index: 10;
+}
+
+.carousel-3d-item.prev {
+    opacity: 0.7;
+    transform: scale(0.85) translateX(-50%) rotateY(25deg) translateZ(-100px);
+    filter: blur(1px);
+    z-index: 10;
+}
+
+.carousel-3d-item.far {
+    opacity: 0;
+    transform: scale(0.7) translateX(0) translateZ(-200px);
+    filter: blur(4px);
+    z-index: 1;
+}
+
+/* Card do carrossel */
+.universe-card {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    background: linear-gradient(145deg, #2a2a3e, #1a1a2e);
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.4),
+        0 0 80px rgba(102, 126, 234, 0.1);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.carousel-3d-item:hover .universe-card {
+    box-shadow: 
+        0 25px 50px rgba(0, 0, 0, 0.5),
+        0 0 100px rgba(102, 126, 234, 0.2);
+    transform: translateY(-5px);
+}
+
+.universe-card-image {
+    height: 240px;
+    position: relative;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+}
+
+.universe-card-image::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.8) 100%);
+}
+
+.universe-card-content {
+    padding: 30px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.universe-card-title {
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.universe-card-subtitle {
+    color: #a0a0a0;
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.universe-card-description {
+    color: #c0c0c0;
+    line-height: 1.6;
+    flex: 1;
+    font-size: 0.9rem;
+}
+
+.universe-card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.universe-tag {
+    padding: 6px 12px;
+    background: rgba(102, 126, 234, 0.1);
+    border: 1px solid rgba(102, 126, 234, 0.3);
+    border-radius: 20px;
+    font-size: 0.75rem;
+    color: #a0a0a0;
+    transition: all 0.3s ease;
+}
+
+.carousel-3d-item.active .universe-tag {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+}
+
+/* Botões de navegação */
+.carousel-3d-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 30;
+    color: white;
+}
+
+.carousel-3d-nav:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-3d-nav.prev { left: 40px; }
+.carousel-3d-nav.next { right: 40px; }
+
+.carousel-3d-nav:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+/* Indicadores */
+.carousel-3d-indicators {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    z-index: 30;
+}
+
+.carousel-3d-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    padding: 0;
+}
+
+.carousel-3d-dot.active {
+    width: 24px;
+    border-radius: 4px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}

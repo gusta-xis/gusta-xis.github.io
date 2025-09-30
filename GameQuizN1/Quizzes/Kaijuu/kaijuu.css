@@ -1,0 +1,230 @@
+
+:root {
+  --cor-fundo: #0d1117; 
+  --cor-primaria: #00bcd4; 
+  --cor-secundaria: #1f2733;
+  --cor-texto: #e6edf3;
+  --cor-selecao: #007bb5; 
+  --cor-borda: #30363d;
+  --fonte-principal: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--fonte-principal);
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.app {
+  max-width: 800px; 
+  width: 100%;
+  background-color: var(--cor-secundaria);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  border: 1px solid var(--cor-borda);
+  padding: 30px;
+  transition: all 0.3s ease-in-out;
+}
+
+
+.tela {
+  display: none;
+  text-align: center;
+}
+
+.tela.active {
+  display: block;
+}
+
+h1 {
+  color: var(--cor-primaria);
+  margin-bottom: 30px;
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-shadow: 0 0 5px rgba(0, 188, 212, 0.5);
+  text-align: left;
+}
+
+.quiz-title {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+h2 {
+  margin-bottom: 15px;
+  margin-top: 30px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-align: left;
+  border-left: 4px solid var(--cor-primaria);
+  padding-left: 10px;
+}
+
+
+.btn {
+  background-color: var(--cor-primaria);
+  color: var(--cor-fundo);
+  border: none;
+  padding: 12px 25px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 700;
+  transition: background-color 0.2s, transform 0.1s, opacity 0.3s;
+  box-shadow: 0 4px 15px rgba(0, 188, 212, 0.4);
+}
+
+.btn:hover:not(:disabled) {
+  background-color: #00a4b5;
+  transform: translateY(-2px);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.btn.ghost {
+    background-color: transparent;
+    color: var(--cor-primaria);
+    border: 2px solid var(--cor-primaria);
+    box-shadow: none;
+}
+.btn.ghost:hover {
+    background-color: rgba(0, 188, 212, 0.1);
+    color: var(--cor-texto);
+}
+
+.actions {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid var(--cor-borda);
+}
+
+
+.question-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.option-label {
+  display: flex;
+  align-items: center;
+  background-color: var(--cor-borda);
+  padding: 15px;
+  border-radius: 8px;
+  text-align: left;
+  cursor: pointer;
+  border: 2px solid var(--cor-borda);
+  transition: all 0.2s;
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+.option-label:hover {
+  border-color: var(--cor-selecao);
+  background-color: #1a202c;
+}
+
+.question-options input[type="radio"] {
+    
+    display: none;
+}
+
+.question-options input[type="radio"]:checked + .option-label {
+  background-color: var(--cor-selecao);
+  border-color: var(--cor-primaria);
+  color: var(--cor-texto);
+  box-shadow: 0 0 10px rgba(0, 123, 181, 0.8);
+  font-weight: 600;
+}
+
+
+.resultado h4 {
+    margin-top: 30px;
+    margin-bottom: 15px;
+    color: var(--cor-primaria);
+    text-align: left;
+    border-bottom: 1px solid var(--cor-borda);
+    padding-bottom: 5px;
+}
+
+.resultado .card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  background-color: #1a202c;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.resultado .card > div {
+    text-align: left;
+}
+
+.resultado .card h3 {
+    color: var(--cor-primaria);
+    font-size: 1.8rem;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.resultado .card img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid var(--cor-primaria);
+  box-shadow: 0 0 15px rgba(0, 188, 212, 0.5);
+}
+
+.resultado .card p {
+    margin-top: 15px;
+    margin-bottom: 0;
+    font-size: 1rem;
+    color: #c0c7d3;
+}
+
+.resultado .score {
+    padding: 5px 0;
+    border-bottom: 1px dashed var(--cor-borda);
+    font-size: 0.95rem;
+}
+
+.resultado .score:last-child {
+    border-bottom: none;
+}
+
+
+@media (min-width: 500px) {
+    .resultado .card {
+        flex-direction: row;
+    }
+}
+@media (max-width: 400px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+    .app {
+        padding: 20px;
+    }
+    .btn {
+        padding: 10px 20px;
+    }
+}
